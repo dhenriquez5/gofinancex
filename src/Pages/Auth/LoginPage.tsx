@@ -55,7 +55,13 @@ const Login: React.FC = () => {
             <Input.Password prefix={<LockOutlined />} placeholder="Password" />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="w-full" loading={loading}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="w-full"
+              disabled={loading}
+              loading={loading}
+            >
               Sign in
             </Button>
           </Form.Item>
