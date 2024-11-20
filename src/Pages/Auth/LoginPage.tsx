@@ -34,24 +34,18 @@ const Login: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-200 to-gray-300 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-white p-8 shadow-md rounded-lg">
-        <h2 className="text-center text-3xl font-bold text-gray-900">Sign in to goFinanceX</h2>
+        <h2 className="text-center text-3xl font-bold text-gray-900">Iniciar Sesion GoFinanceX</h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Or{' '}
+          O{' '}
           <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
-            create an account
+            Crear nueva cuenta
           </a>
         </p>
         <Form name="login" initialValues={{ remember: true }} onFinish={onFinish} className="mt-6">
-          <Form.Item
-            name="username"
-            rules={[{ required: true, message: 'Please input your Username!' }]}
-          >
-            <Input prefix={<UserOutlined />} placeholder="Username" />
+          <Form.Item name="username" rules={[{ required: true, message: 'Usuario requerido' }]}>
+            <Input prefix={<UserOutlined />} placeholder="Usuario" />
           </Form.Item>
-          <Form.Item
-            name="password"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
-          >
+          <Form.Item name="password" rules={[{ required: true, message: 'Password Requerido' }]}>
             <Input.Password prefix={<LockOutlined />} placeholder="Password" />
           </Form.Item>
           <Form.Item>
@@ -62,7 +56,7 @@ const Login: React.FC = () => {
               disabled={loading}
               loading={loading}
             >
-              Sign in
+              Iniciar Sesion
             </Button>
           </Form.Item>
         </Form>

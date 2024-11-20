@@ -42,11 +42,11 @@ describe('Login Component', () => {
   it('renders the login form correctly', () => {
     render(<Login />);
 
-    expect(screen.getByText(/Sign in to goFinanceX/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Username/i)).toBeInTheDocument();
+    expect(screen.getByText(/Iniciar Sesion GoFinanceX/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Usuario/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Password/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Sign in/i })).toBeInTheDocument();
-    expect(screen.getByText(/create an account/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Iniciar Sesion/i })).toBeInTheDocument();
+    expect(screen.getByText(/Crear nueva cuenta/i)).toBeInTheDocument();
   });
 
   it('navigates to the dashboard if the user is authenticated', () => {
@@ -65,14 +65,14 @@ describe('Login Component', () => {
 
     render(<Login />);
 
-    fireEvent.change(screen.getByPlaceholderText(/Username/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Usuario/i), {
       target: { value: 'invalidUser' },
     });
     fireEvent.change(screen.getByPlaceholderText(/Password/i), {
       target: { value: 'wrongPassword' },
     });
 
-    fireEvent.click(screen.getByRole('button', { name: /Sign in/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Iniciar Sesion/i }));
 
     await waitFor(() => {
       expect(mockLogin).toHaveBeenCalledWith('invalidUser', 'wrongPassword');
@@ -85,14 +85,14 @@ describe('Login Component', () => {
 
     render(<Login />);
 
-    fireEvent.change(screen.getByPlaceholderText(/Username/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Usuario/i), {
       target: { value: 'validUser' },
     });
     fireEvent.change(screen.getByPlaceholderText(/Password/i), {
       target: { value: 'correctPassword' },
     });
 
-    fireEvent.click(screen.getByRole('button', { name: /Sign in/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Iniciar Sesion/i }));
 
     await waitFor(() => {
       expect(mockLogin).toHaveBeenCalledWith('validUser', 'correctPassword');
@@ -105,14 +105,14 @@ describe('Login Component', () => {
 
     render(<Login />);
 
-    fireEvent.change(screen.getByPlaceholderText(/Username/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Usuario/i), {
       target: { value: 'validUser' },
     });
     fireEvent.change(screen.getByPlaceholderText(/Password/i), {
       target: { value: 'correctPassword' },
     });
 
-    fireEvent.click(screen.getByRole('button', { name: /Sign in/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Iniciar Sesion/i }));
     await waitFor(() => {
       expect(mockLogin).toHaveBeenCalledWith('validUser', 'correctPassword');
       expect(message.error).toHaveBeenCalledWith('An error occurred during login');
